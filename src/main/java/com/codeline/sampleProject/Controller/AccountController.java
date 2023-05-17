@@ -21,7 +21,7 @@ public class AccountController {
     }
     public void createAccount(){
         Account account = new Account();
-        account.setAccountType("");
+        account.setAccountType("Save");
         account.setAccountNumber("1234567890987");
         account.setBankName("Sohar");
         account.setBankBranch("Rustaq");
