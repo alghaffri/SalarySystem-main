@@ -21,7 +21,7 @@ public class Account extends BaseEntity {
 
     String bankName;
 
-    String accountNumber;
+    Integer accountNumber;
 
     String bankBranch;
 

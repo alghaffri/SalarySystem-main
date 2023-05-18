@@ -4,7 +4,7 @@ import com.codeline.sampleProject.Models.Account;
 import com.codeline.sampleProject.ResponseObjects.GetAccountResponse;
 import com.codeline.sampleProject.Service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,28 +13,34 @@ import java.util.List;
 
 @RestController
 public class AccountController {
+
+
     @Autowired
     AccountService accountService;
 
-    @RequestMapping("account/create")
-    public void saveAccount(){
+    @RequestMapping("Account/create")
+    public void saveAccount()
+    {
         createAccount();
     }
+
     @RequestMapping("account/get")
     public List<Account> getAccount ()
     {
         return accountService.getAccount();
     }
+
     @RequestMapping("account/get/{accountId}")
     public GetAccountResponse createAccount (@PathVariable Long accountId)
     {
         return accountService.getAccountById(accountId);
     }
 
+
     public void createAccount(){
         Account account = new Account();
         account.setAccountType("Save");
-        account.setAccountNumber("1234567890987");
+        account.setAccountNumber(548485);
         account.setBankName("Sohar");
         account.setBankBranch("Rustaq");
         account.setBranchCode(398);

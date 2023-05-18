@@ -9,10 +9,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class GetAccountRequstObject {
-    String bankName;
+public class GetSalaryRequestObject {
+    Double amount;
 
-    Integer accountNumber;
+    String currency;
 
-    String bankBranch;
+    Integer allowances;
 }

@@ -5,15 +5,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetAccountResponse {
-    String bankName;
+@Getter
+@Setter
+public class GetSalaryResponse {
+    Double amount;
 
-    Integer accountNumber;
+    String currency;
 
-    String bankBranch;
+    Integer allowances;
 
 }
+

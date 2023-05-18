@@ -28,7 +28,7 @@ public class Salary extends BaseEntity {
 
     Double healthCareContribution;
 
-    Double allowances;
+    Integer allowances;
 
     Double bonus;
 
