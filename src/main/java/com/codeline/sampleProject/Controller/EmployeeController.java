@@ -5,10 +5,7 @@ import com.codeline.sampleProject.RequestObjects.GetEmployeeRequestObjects;
 import com.codeline.sampleProject.ResponseObjects.GetEmployeeResponse;
 import com.codeline.sampleProject.Service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -42,5 +39,9 @@ public List<Employee> getEmployee(){
         employee.setCreatedDate(new Date());
         employee.setIsActive(true);
         employeeService.saveEmployee(employee);
+    }
+    @RequestMapping("employee/getByDepartment")
+    public List<Employee> getAllEmployeesByDepartment(@RequestParam String departmentName) {
+        return employeeService.getEmployeesByDept(departmentName);
     }
 }
