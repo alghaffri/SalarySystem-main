@@ -7,3 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+@Repository
+public interface ManagerRepository extends JpaRepository<Manager, Long> {
+
+    @Query("SELECT * FROM Manager WHERE teamName=:nameOfTeam")
+    Manager getManagerByTeamName(@Param("nameOfTeam") String teamName);
+}
