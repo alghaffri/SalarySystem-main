@@ -31,4 +31,7 @@ public class SalaryService {
             return null;
         }
     }
+    public Salary getByCurrencyName(String currencyName){
+        return salaryRepository.getByCurrencyName(currencyName);
+    }
 }

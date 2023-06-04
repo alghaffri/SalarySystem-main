@@ -2,13 +2,13 @@ package com.codeline.sampleProject.Controller;
 
 import com.codeline.sampleProject.Models.Employee;
 import com.codeline.sampleProject.Models.Salary;
+import com.codeline.sampleProject.RequestObjects.GetManagerRequestObject;
+import com.codeline.sampleProject.RequestObjects.GetSalaryRequestObject;
 import com.codeline.sampleProject.ResponseObjects.GetSalaryResponse;
 import com.codeline.sampleProject.Service.SalaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -36,7 +36,7 @@ public class SalaryController {
         return salaryService.getSalaryById(salaryId);
     }
 
-    public void createAccount(getSalaryRequestObject salaryRequestObject) {
+    public void createAccount(GetSalaryRequestObject salaryRequestObject) {
 
         Salary salary = new Salary();
         salary.setAllowances(salaryRequestObject.getAllowances());
@@ -46,7 +46,7 @@ public class SalaryController {
         salary.setCreatedDate(new Date());
         salary.setIsActive(true);
         salary.setOverTimeAmount(2.0);
-        salary.setHealthCareContribution(50.0);
+        salary.setHealthCareContribution(200.0);
         salaryService.saveSalary(salary);
     }
 
