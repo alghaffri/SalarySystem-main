@@ -32,11 +32,12 @@ public class MangerController {
     public GetManagerResponse createManager (@PathVariable Long managerId) {
         return managerService.getManagerById(managerId);
     }
-    public void createManager(GetManagerRequestObject managerRequestObject) {
+    public void createManager(GetManagerRequestObject managerRequestObject)
+    {
         Manager manager = new Manager();
-        manager.setDepartment(managerRequestObject.getDepartment());
-        manager.setTeamName("Siuuuuu");
         manager.setCreatedDate(new Date());
+        manager.setTeamName(managerRequestObject.getTeamName());
+        manager.setDepartment(managerRequestObject.getDepartment());
         manager.setIsActive(true);
         managerService.saveManager(manager);
     }

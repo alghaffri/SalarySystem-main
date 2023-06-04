@@ -13,36 +13,45 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Date;
 import java.util.List;
 
-@Controller
+@RestController
 public class SalaryController {
+
+
     @Autowired
     SalaryService salaryService;
+
     @RequestMapping("salary/create")
-    public void saveSalary (@RequestBody Long salaryRequestObject ) {
+    public void saveSalary(@RequestBody Long salaryRequestObject) {
         createSalary(salaryRequestObject);
     }
+
     @RequestMapping("salary/get")
-    public List<Salary> getSalary () {
+    public List<Salary> getSalary() {
         return salaryService.getSalary();
     }
+
+
     @RequestMapping("salary/get/{salaryId}")
-    public GetSalaryResponse createSalary (@PathVariable Long salaryId)
-    {
+    public GetSalaryResponse createSalary(@PathVariable Long salaryId) {
         return salaryService.getSalaryById(salaryId);
     }
-    public void createSalary() {
+
+    public void createAccount(getSalaryRequestObject salaryRequestObject) {
 
         Salary salary = new Salary();
-        salary.setAmount(600.0);
-        salary.setBonus(50.0);
+        salary.setAllowances(salaryRequestObject.getAllowances());
+        salary.setAmount(salaryRequestObject.getAmount());
+        salary.setBonus(12.12);
+        salary.setCurrency(salaryRequestObject.getCurrency());
         salary.setCreatedDate(new Date());
         salary.setIsActive(true);
-        salary.setAllowances(50);
-        salary.setOverTimeAmount(50.0);
-        salary.setDeductions(50.0);
-        salary.setCurrency("Dollar");
+        salary.setOverTimeAmount(2.0);
         salary.setHealthCareContribution(50.0);
         salaryService.saveSalary(salary);
     }
 
+    @RequestMapping("salary/getCurrency")
+    public Salary getByCurrencyName(@RequestParam String currencyName){
+        return salaryService.getByCurrencyName(currencyName);
+    }
 }
