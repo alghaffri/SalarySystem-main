@@ -33,4 +33,7 @@ public class EmployeeService {
 
         return null;
     }
+    public List<Employee> getEmployeesByDept(String deptName){
+        return employeeRepository.getEmployeeByDepartment(deptName);
+    }
 }
