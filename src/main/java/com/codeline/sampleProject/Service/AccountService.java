@@ -33,4 +33,7 @@ public class AccountService {
             return null;
         }
     }
+    public Account getAccountByAccountNumber(String accountNumber){
+        return accountRepository.getAccountByAccountNumber(accountNumber);
+    }
 }
